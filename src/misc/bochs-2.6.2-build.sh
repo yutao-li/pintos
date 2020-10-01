@@ -1,5 +1,7 @@
 #! /bin/sh -e
-
+SRCDIR="/home/masterlee/Downloads"
+PINTOSDIR="/home/masterlee/Documents/pintos"
+DSTDIR="/usr/local"
 if test -z "$SRCDIR" || test -z "$PINTOSDIR" || test -z "$DSTDIR"; then
     echo "usage: env SRCDIR=<srcdir> PINTOSDIR=<srcdir> DSTDIR=<dstdir> sh $0"
     echo "  where <srcdir> contains bochs-2.6.2.tar.gz"
@@ -25,7 +27,7 @@ mkdir plain &&
         ../configure $CFGOPTS --enable-gdb-stub && 
         make && 
         make install &&
-        cd ..
+        cd .. &&
 mkdir with-dbg &&
         cd with-dbg &&
         ../configure --enable-debugger --disable-debugger-gui $CFGOPTS &&
